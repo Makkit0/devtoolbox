@@ -1,6 +1,7 @@
 const jsonInput = document.getElementById("jsonInput");
 const jsonOutput = document.getElementById("jsonOutput");
 const jsonMessage = document.getElementById("jsonMessage");
+const jsonInfo = document.getElementById("jsonInfo");
 
 const formatBtn = document.getElementById("formatBtn");
 const minifyBtn = document.getElementById("minifyBtn");
@@ -19,6 +20,28 @@ function parseJSON() {
     }
 }
 
+function getJSONInfo(data) {
+    let type = "Desconocido";
+    let keys = 0;
+    let elements = 0;
+
+    if (Array.isArray(data)) {
+        type = "Array";
+        elements = data.length;
+    } else if (data !== null && typeof data === "object") {
+        type = "Objeto";
+        keys = Object.keys(data).length;
+        elements = Object.keys(data).length;
+    } else {
+        type = typeof data;
+    }
+
+    return {
+        type,
+        keys,
+        elements
+    };
+}
 
 formatBtn.addEventListener("click", function () {
     const data = parseJSON();
@@ -51,11 +74,21 @@ validateBtn.addEventListener("click", function () {
 
     if (data === null) {
         jsonOutput.value = "";
+        jsonInfo.textContent = "";
         return;
     }
 
     jsonOutput.value = JSON.stringify(data, null, 2);
     jsonMessage.textContent = "✓ JSON válido.";
+
+    const info = getJSONInfo(data);
+
+    jsonInfo.innerHTML = `
+        <strong>Información:</strong>
+        Tipo: ${info.type} |
+        Claves: ${info.keys} |
+        Elementos: ${info.elements}
+    `;
 });
 
 
@@ -88,4 +121,5 @@ clearBtn.addEventListener("click", function () {
     jsonInput.value = "";
     jsonOutput.value = "";
     jsonMessage.textContent = "";
+    jsonInfo.textContent = "";
 });
