@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JSON Toolkit - DevToolbox</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <h1>DevToolbox</h1>
+            <p>Herramientas gratuitas para desarrolladores</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="hero">
+            <h2>JSON Toolkit</h2>
+            <p>
+                Formatea, valida y minifica JSON de forma rápida y gratuita.
+            </p>
+        </section>
+
+        <section class="json-tool">
+
+            <div class="json-input">
+                <h3>JSON de entrada</h3>
+
+                <textarea
+                    id="jsonInput"
+                    placeholder='Pega tu JSON aquí...'
+                    spellcheck="false"
+                ></textarea>
+
+                <div class="json-actions">
+                    <button id="formatBtn">Formatear</button>
+                    <button id="minifyBtn">Minificar</button>
+                    <button id="validateBtn">Validar</button>
+                </div>
+            </div>
+
+            <div class="json-output">
+                <h3>Resultado</h3>
+
+                <textarea
+                    id="jsonOutput"
+                    readonly
+                    spellcheck="false"
+                    placeholder="El resultado aparecerá aquí..."
+                ></textarea>
+
+                <button id="copyBtn">Copiar resultado</button>
+
+                <p id="jsonMessage"></p>
+            </div>
+
+        </section>
+
+        <p>
+            <a href="../index.html">← Volver a DevToolbox</a>
+        </p>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2026 DevToolbox</p>
+        </div>
+    </footer>
+
+    <script src="../js/json-toolkit.js"></script>
+
+</body>
+</html>

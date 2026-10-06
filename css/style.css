@@ -71,6 +71,77 @@ body {
     background-color: #444;
 }
 
+/* JSON Toolkit */
+
+.json-tool {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.json-input,
+.json-output {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.json-input h3,
+.json-output h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 350px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    resize: vertical;
+    font-family: Consolas, Monaco, monospace;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #555;
+}
+
+.json-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+button {
+    border: none;
+    padding: 11px 18px;
+    border-radius: 6px;
+    background-color: #222;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #444;
+}
+
+#copyBtn {
+    margin-top: 15px;
+}
+
+#jsonMessage {
+    margin-bottom: 0;
+    font-weight: bold;
+    min-height: 20px;
+}
+
 .site-footer {
     padding: 25px 0;
     background-color: #222;
@@ -79,4 +150,22 @@ body {
 
 .site-footer p {
     margin: 0;
+}
+
+@media (max-width: 700px) {
+    .json-tool {
+        grid-template-columns: 1fr;
+    }
+
+    .json-actions {
+        flex-direction: column;
+    }
+
+    .json-actions button {
+        width: 100%;
+    }
+
+    textarea {
+        min-height: 250px;
+    }
 }
