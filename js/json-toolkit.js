@@ -6,6 +6,8 @@ const formatBtn = document.getElementById("formatBtn");
 const minifyBtn = document.getElementById("minifyBtn");
 const validateBtn = document.getElementById("validateBtn");
 const copyBtn = document.getElementById("copyBtn");
+const swapBtn = document.getElementById("swapBtn");
+const clearBtn = document.getElementById("clearBtn");
 
 
 function parseJSON() {
@@ -69,4 +71,21 @@ copyBtn.addEventListener("click", async function () {
     } catch (error) {
         jsonMessage.textContent = "No se pudo copiar el resultado.";
     }
+});
+
+swapBtn.addEventListener("click", function () {
+    if (!jsonOutput.value) {
+        jsonMessage.textContent = "No hay ningún resultado para intercambiar.";
+        return;
+    }
+
+    jsonInput.value = jsonOutput.value;
+    jsonMessage.textContent = "✓ Resultado colocado como nueva entrada.";
+});
+
+
+clearBtn.addEventListener("click", function () {
+    jsonInput.value = "";
+    jsonOutput.value = "";
+    jsonMessage.textContent = "";
 });
